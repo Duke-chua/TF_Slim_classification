@@ -5,4 +5,4 @@ python My_export_inference_graph.py \
   --image_width=299 \
   --batch_size=1 \
   --input_node_names=input \
-  --output_file=/home/gulingfengze/Works/Projects/Classification/freeze_model/inception_v4_inf_graph.pb
+  --output_file=/xx/Classification/freeze_model/inception_v4_inf_graph.pb

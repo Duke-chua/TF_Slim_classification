@@ -1,16 +1,16 @@
 python My_train_image_classifier.py \
-    --train_dir=/home/gulingfengze/Works/Projects/Classification/train_logs \
-    --dataset_dir=/home/gulingfengze/Works/Projects/Classification/train \
-    --num_samples=3320 \
+    --train_dir=/xx/Classification/train_logs \
+    --dataset_dir=/xx/Classification/train \
+    --num_samples=3170 \
     --num_classes=5 \
     --train_image_height=299 \
     --train_image_width=299 \
-    --labels_to_names_path=/home/gulingfengze/Works/Projects/Classification/labels.txt \
+    --labels_to_names_path=/xx/Classification/labels.txt \
     --max_number_of_steps=30000 \
     --model_name=inception_v4 \
     --optimizer=rmsprop \
     --learning_rate=0.001 \
     --batch_size=4 \
-    --checkpoint_path=/home/gulingfengze/Works/Projects/Classification/checkpoints/inception_v4.ckpt \
+    --checkpoint_path=/xx/Classification/checkpoints/inception_v4.ckpt \
     --checkpoint_exclude_scopes=InceptionV4/Logits,InceptionV4/AuxLogits/Aux_logits \
     --trainable_scopes=InceptionV4/Logits,InceptionV4/AuxLogits/Aux_logits
