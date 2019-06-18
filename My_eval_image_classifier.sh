@@ -4,4 +4,6 @@ python My_eval_image_classifier.py \
     --dataset_dir=/xx/Classification/val \
     --num_samples=500 \
     --num_classes=5 \
+    --eval_image_height=299 \
+    --eval_image_width=299 \
     --model_name=inception_v4

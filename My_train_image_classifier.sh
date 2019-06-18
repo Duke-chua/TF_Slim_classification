@@ -1,12 +1,12 @@
 python My_train_image_classifier.py \
     --train_dir=/xx/Classification/train_logs \
     --dataset_dir=/xx/Classification/train \
+    --max_number_of_steps=30000 \
     --num_samples=3170 \
     --num_classes=5 \
     --train_image_height=299 \
     --train_image_width=299 \
     --labels_to_names_path=/xx/Classification/labels.txt \
-    --max_number_of_steps=30000 \
     --model_name=inception_v4 \
     --optimizer=rmsprop \
     --learning_rate=0.001 \

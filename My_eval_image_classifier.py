@@ -60,10 +60,10 @@ tf.app.flags.DEFINE_string(
     'dataset_dir', None, 'The directory where the dataset files are stored.')
 ##Add
 tf.app.flags.DEFINE_integer(
-    'num_samples', 2560, 'Number of samples.')
+    'num_samples', 500, 'Number of samples.')
 
 tf.app.flags.DEFINE_integer(
-    'num_classes', 33, 'Number of classes.')
+    'num_classes', 5, 'Number of classes.')
 
 tf.app.flags.DEFINE_string(
     'labels_to_names_path', None, 'Label names file path.')
@@ -92,6 +92,14 @@ tf.app.flags.DEFINE_integer(
 tf.app.flags.DEFINE_bool(
     'quantize', False, 'whether to use quantized graph or not.')
 
+##Add
+tf.app.flags.DEFINE_integer(
+    'eval_image_height', None,
+    'The image height to use, otherwise use the model default_image_size.')
+tf.app.flags.DEFINE_integer(
+    'eval_image_width', None,
+    'The image width to use, otherwise use the model default_image_size.')
+
 FLAGS = tf.app.flags.FLAGS
 
 
@@ -109,7 +117,7 @@ def main(_):
     #dataset = dataset_factory.get_dataset(
     #    FLAGS.dataset_name, FLAGS.dataset_split_name, FLAGS.dataset_dir)
     dataset = dataset_classification.get_dataset(
-    FLAGS.dataset_dir, FLAGS.num_samples, FLAGS.num_classes, FLAGS.labels_to_names_path)
+         FLAGS.dataset_dir, FLAGS.num_samples, FLAGS.num_classes, FLAGS.labels_to_names_path)
 
     ####################
     # Select the model #
@@ -141,7 +149,7 @@ def main(_):
     #eval_image_size = FLAGS.eval_image_size or network_fn.default_image_size
 
     #image = image_preprocessing_fn(image, eval_image_size, eval_image_size)
-    image = image_preprocessing_fn(image, 224, 112)
+    image = image_preprocessing_fn(image, FLAGS.eval_image_height, FLAGS.eval_image_width)
 
     images, labels = tf.train.batch(
         [image, label],

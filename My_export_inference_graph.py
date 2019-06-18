@@ -152,6 +152,7 @@ def main(_):
         FLAGS.model_name,
         num_classes=(dataset.num_classes - FLAGS.labels_offset),
         is_training=FLAGS.is_training)
+    print("======> num_classes: {}".format(dataset.num_classes - FLAGS.labels_offset))
     #image_size = FLAGS.image_size or network_fn.default_image_size
     if FLAGS.is_video_model:
       #input_shape = [FLAGS.batch_size, FLAGS.num_frames, image_size, image_size, 3]
@@ -162,7 +163,8 @@ def main(_):
       input_shape = [FLAGS.batch_size, FLAGS.image_height, FLAGS.image_width, 3]
     #placeholder = tf.placeholder(name='input', dtype=tf.float32, shape=input_shape)
     placeholder = tf.placeholder(name=FLAGS.input_node_names, dtype=tf.float32, shape=input_shape)
-    print(input_shape)
+    print("======> input_node_names: {}".format(FLAGS.input_node_names))
+    print("======> input_shape: {}".format(input_shape))
     network_fn(placeholder)
 
     if FLAGS.quantize:

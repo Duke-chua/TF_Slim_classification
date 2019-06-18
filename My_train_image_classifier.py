@@ -187,10 +187,10 @@ tf.app.flags.DEFINE_string(
 
 ##Add
 tf.app.flags.DEFINE_integer(
-    'num_samples', 23040, 'Number of samples.')
+    'num_samples', 3170, 'Number of samples.')
 
 tf.app.flags.DEFINE_integer(
-    'num_classes', 33, 'Number of classes.')
+    'num_classes', 5, 'Number of classes.')
 
 tf.app.flags.DEFINE_string(
     'labels_to_names_path', None, 'Label names file path.')
